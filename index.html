@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cassino Online</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom, #020024, #090979, #00d4ff);
+      color: white;
+      text-align: center;
+    }
+    header {
+      padding: 20px;
+      background-color: #000c3f;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    .slot-machine {
+      margin-top: 50px;
+    }
+    .play-button {
+      background-color: #00c3ff;
+      color: white;
+      padding: 15px 30px;
+      border: none;
+      font-size: 1.2rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .play-button:hover {
+      background-color: #009edb;
+    }
+    footer {
+      margin-top: 100px;
+      padding: 20px;
+      background-color: #000c3f;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bem-vindo ao Cassino Online</h1>
+  </header>
+
+  <div class="slot-machine">
+    <h2>Slot Machine: Fortune Tiger</h2>
+    <button class="play-button" onclick="jogar()">Jogar Agora</button>
+    <p id="resposta"></p>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Cassino Online. Todos os direitos reservados.</p>
+  </footer>
+
+  <script>
+    async function jogar() {
+      try {
+        const res = await fetch("https://cassino-558n.onrender.com/jogar");
+        const data = await res.json();
+        document.getElementById("resposta").innerText = `Resultado: ${data.resultado}`;
+      } catch (e) {
+        document.getElementById("resposta").innerText = "Erro ao conectar com o servidor.";
+      }
+    }
+  </script>
+</body>
+</html>
