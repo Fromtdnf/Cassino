@@ -15,11 +15,6 @@ app.get('/', (req, res) => {
   res.send('API do Cassino Online está funcionando!');
 });
 
-const express = require('express');
-const app = express();
-
-// Sua lógica e rotas aqui...
-
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Servidor rodando na porta ${PORT}`);
